@@ -1,9 +1,11 @@
 import fs from "fs";
 import path from "path";
+import { getInput } from "@actions/core"
 import { saveCache, restoreCache } from "@actions/cache";
 
 const fileName = "foo.txt";
-const key = process.env.INPUT_CACHEKEY;
+const key = getInput("cacheKey", { required: true });
+console.log({ key });
 
 const restorResult = await restoreCache([fileName], key);
 console.log({ restorResult });
