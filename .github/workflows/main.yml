@@ -25,3 +25,5 @@ jobs:
 
       - name: Run a script that uses @actions/cache
         run: node ./scripts/cache-example.js
+        env:
+          CACHE_KEY: ${{ github.event.inputs.cacheKey }}
